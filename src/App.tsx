@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route,Router,Link} from 'react-router';
+import { Child1, Child2 } from './component/index';
 
 function App() {
   return (

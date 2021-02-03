@@ -5,7 +5,9 @@ import {
   Route,
   Link,
   useRouteMatch,
-  useParams
+  useParams,
+  NavLink,
+  Redirect
 } from 'react-router-dom'
 
 export default function App() {
@@ -20,7 +22,7 @@ export default function App() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <NavLink activeClassName = "active" to="/topics">Topics</NavLink>
           </li>
         </ul>
 
@@ -31,7 +33,9 @@ export default function App() {
           <Route path="/topics">
             <Topics />
           </Route>
+          
           <Route path="/">
+          
             <Home />
           </Route>
         </Switch>
@@ -76,12 +80,16 @@ function Topics() {
         <Route path={match.path}>
           <h3>Please select a topic.</h3>
         </Route>
+        <Redirect from = "/*/props-v-state" to = "/"></Redirect>
       </Switch>
     </div>
   )
 }
 
 function Topic() {
-  let { topicId } = useParams()
-  return <h3>Requested topic ID: {topicId}</h3>
+  let param = useParams();
+  console.log("/********param: ",param);
+  let match = useRouteMatch();
+  console.log("/********match Topic: ",match);
+  return <h3>Requested topic ID: {param.opicId}</h3>
 }

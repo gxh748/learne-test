@@ -27,7 +27,7 @@ function Nav(){
 
 
 
-function App() {
+export default function App() {
   return (
     <Router basename = "/app" keyLength = {12} >
       <Nav />
@@ -44,5 +44,3 @@ function App() {
 
   );
 }
-
-export default App;
